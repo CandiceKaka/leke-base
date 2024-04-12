@@ -1,0 +1,138 @@
+@import "../../less/theme.less";
+@import "../Dropdown/index.less";
+
+.leke-miniHeader{
+    font-size: 12px;
+    margin: 0 auto;
+    width: 100%;
+    background-color: #fff;
+    a{
+        color: inherit;
+    }
+    .leke-miniHeader-content{
+        max-width: 1200px;
+        height:50px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #666;
+    }
+    .leke-miniHeader-logo {
+        vertical-align: middle;
+        max-width: 200px;
+        max-height: 28px;
+    }
+    .leke-miniHeader-right{
+        display: flex;
+        min-width: 200px;
+        height: 100%;
+        justify-content: space-between;
+    }
+    .leke-miniHeader-message{
+        display: flex;
+        align-items: center;
+        .icon-notice{ // 消息logo样式
+            color:#666;
+            margin-right: 5px;
+            font-size: 20px;
+        }
+        .leke-miniHeader-count{
+            height: 16px;
+            display: flex;
+            align-items: center;
+            padding:0 6px;
+            background: #f7785f;
+            border-radius: 8px;
+            color: #fff;
+            margin-left: 2px;
+        }
+    }
+    .leke-miniHeader-user{
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        height: 100%;
+        .leke-miniHeader-portrait{
+          margin-right:3px;
+          img{
+            display: block;
+            max-width: 24px;
+            max-height:24px;
+            border-radius: 50%;
+          }
+        }
+        .leke-miniHeader-userName{
+            width:54px;
+            display: block;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            text-align: center;
+            margin:0 3px;
+            color: #666;
+        }
+        .leke-icon-down-fill{
+            color:#e3e4e8;
+        }
+    }
+    .leke-miniHeader-login{
+        display: flex;
+        align-items: center;
+        .leke-miniHeader-login-btn{
+            color:@base-color;
+        }
+        span{
+            margin-left:8px;
+            margin-right: 8px;
+        }
+    }
+}
+.leke-miniHeader-role-list{
+    width: 140px;
+    box-sizing: content-box;
+    font-size: 14px;
+    color:@text-color;
+    a{
+        color: inherit;
+    }
+    li{
+        padding:0 10px;
+        margin:10px 0;
+        box-sizing: border-box;
+        display: flex;
+        &:first-child{
+            border-bottom: #ececec 1px solid;
+            padding-bottom: 8px;
+        }
+        &:last-child{
+            border-top: #ececec 1px solid;
+            padding-top: 8px;
+        }
+        a{
+            display: flex;
+            flex: 1;
+            height: 26px;
+            align-items: center;
+            width: 100%;
+            border-radius: @radius;
+            color:inherit;
+            &:hover{
+                background-color: #d2f0ed;
+                color: @base-color;
+            }
+        }
+        .leke-indent{
+            width:31px;
+            font-size: 12px;
+            display: flex;
+            justify-content: center;
+        }
+        &.leke-role-current{
+            a{
+                background-color: #d2f0ed;
+                color: @base-color;
+            }
+        }
+    }
+}

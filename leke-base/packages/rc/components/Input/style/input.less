@@ -1,0 +1,127 @@
+@import "./vars.less";
+@import './mixin.less';
+
+.leke-input{
+  .reset();
+  .base-input();
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  min-width: 0;
+  padding: @input-padding-vertical-base @input-padding-horizontal-base;
+  color: @input-color;
+  font-size: @font-size-base;
+  line-height: @line-height-base;
+  background-color: @input-bg;
+  background-image: none;
+  border: @border-width-base @border-style-base @input-border-color;
+  border-radius: @border-radius-base;
+  transition: all 0.3s;
+  box-sizing: border-box;
+  
+  &:hover{
+    .hover()
+  }
+  &:focus{
+    .focus()
+  }
+
+  &-lg {
+    padding: @input-padding-vertical-large @input-padding-horizontal-large;
+  }
+
+  &-sm {
+    padding: @input-padding-vertical-small @input-padding-horizontal-small;
+  }
+  
+  &-disabled{
+    .disabled()
+  }
+}
+
+.leke-input-cleared{
+  .reset();
+  width: initial;
+  flex-grow: 1;
+  &:focus{
+    box-shadow:none;
+  }
+}
+
+.leke-input-wrap{
+  width: 100%;
+  display: inline-flex;
+
+  &-focus{
+    .focus();
+  }
+
+  .leke-input-addon{
+    position: relative;
+    .flex-center();
+    font-size: 14px;
+    font-weight: 400;
+    border-radius:@border-radius-base;;
+
+    &-text{
+      padding: 0 @input-padding-horizontal-base;
+      border: @border-width-base solid @input-border-color;
+    }
+    &:first-child{
+      border-right-width: 0;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      &>:first-child{
+        border-right-color: transparent;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+  
+    &:last-child{
+      border-left-width: 0;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      &>:first-child{
+        border-left-width: 0;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+
+    &-lg {
+      padding: @input-padding-vertical-large @input-padding-horizontal-large;
+    }
+  
+    &-sm {
+      padding: @input-padding-vertical-small @input-padding-horizontal-small;
+    }
+    
+  }
+  
+  .leke-input{
+    &:first-child{
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    &:last-child{
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+    &:not(:first-child):not(:last-child){
+      border-radius: 0
+    }
+  }
+
+  
+  .leke-input-prefix,.leke-input-suffix{
+    display: flex;
+    align-items: center;
+  }
+  .leke-input-prefix{
+    margin-right: 10px;
+  }
+  .leke-input-suffix{
+    margin-left: 10px;
+  }
+}

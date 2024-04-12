@@ -1,0 +1,20 @@
+{
+  "name": "@leke/hooks",
+  "version": "1.0.4",
+  "description": "",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "scripts": {
+    "build": "rimraf es && rimraf lib && gulp"
+  },
+  "author": "",
+  "license": "ISC",
+  "files": [
+    "package.json",
+    "lib",
+    "es"
+  ],
+  "dependencies": {
+    "omit.js": "^2.0.2"
+  }
+}

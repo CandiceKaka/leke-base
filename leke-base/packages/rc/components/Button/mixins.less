@@ -1,0 +1,83 @@
+@btn-main:'main';
+// 失败按钮
+@danger-btn-color:#ff4848;
+@danger-btn-hover-color:#ff7571;
+@danger-btn-click-color:#d93337;
+@leke-danger-btn-disabled:#ffc8c2;
+//警示按钮
+@warning-btn-color:#ff9900;
+@warning-btn-hover-color:#ffb029;
+@warning-btn-click-color:#d97b00;
+@leke-warning-btn-disabled:#ffe7a3;
+
+.type(@width,@height,@fontSize){
+    min-width: @width;
+    height: @height;
+    font-size: @fontSize;
+}
+.btnDisabled(@color){
+    color: @color;
+    cursor: not-allowed;
+}
+.btn-main(@color,@hoverColor,@clickColor){
+    color: #fff;
+    border: none;
+    background-color: @color;
+    &:hover{
+        background-color: @hoverColor;
+    }
+    &:active{
+        background-color: @clickColor;
+    }
+}
+.btn-default(@color,@hoverColor,@clickColor){
+    color: @color;
+    background: transparent;
+    border: 1px solid @color;
+    &:hover{
+        color: @hoverColor;
+        border-color: @hoverColor;
+    }
+    &:active{
+        color: @clickColor;
+        border-color: @clickColor;
+    }
+}
+.btn-secondary(@color,@hoverColor,@clickColor){
+    color: @clickColor;
+    background: transparent;
+    border: solid 1px @hoverColor;
+    &:hover{
+        color: @hoverColor;
+        border-color: @hoverColor;
+    }
+    &:active{
+        color: @clickColor;
+        border-color: @color;
+    }
+}
+.btn-dashed(@color,@hoverColor,@clickColor){
+    color: @color;
+    background: transparent;
+    border: 1px dashed @color;
+    &:hover{
+        color: @hoverColor;
+        border-color: @hoverColor;
+    }
+    &:active{
+        color: @clickColor;
+        border-color: @clickColor;
+    }
+}
+.btn-link(@color,@hoverColor,@clickColor){
+    color: @color;
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: none;
+    &:hover{
+        color: @hoverColor;
+    }
+    &:active{
+        color: @clickColor;
+    }
+}

@@ -1,0 +1,165 @@
+@import "../../less/theme.less";
+@import "../Dropdown/index.less";
+
+.leke-integrationHeader{
+    font-size: 12px;
+    margin: 0 auto;
+    width: 100%;
+    background-color: #1FB5AB;
+    a{
+        color: inherit;
+    }
+    .leke-integrationHeader-content{
+        height:48px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #666;
+    }
+    .leke-integrationHeader-left{
+        margin-left: 24px;
+        height: 48px;
+        line-height: 48px;
+        .leke-integrationHeader-logo {
+            vertical-align: middle;
+            max-width: 200px;
+            max-height: 28px;
+        }
+        .leke-integrationHeader-title{
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            margin-left: 10px;
+            vertical-align: middle;
+            &::before{
+                content:'';
+                display: inline-block;
+                width:1px;
+                height: 12px;
+                background-color: #fff;
+                margin-right: 8px;
+            }
+        }
+        .leke-integrationHeader-menu{
+            float: right;
+            margin-left: 56px;
+            a{
+                min-width: 104px;
+                display: inline-block;
+                font-size: 14px;
+                color:#fff;
+                text-align: center;
+                font-weight: 600;
+                &.active,&:hover{
+                    background: #00a59a;
+                }
+            }
+        }
+    }
+    .leke-integrationHeader-right{
+        display: flex;
+        min-width: 166px;
+        height: 100%;
+        margin-right: 22px;
+        color:#fff;
+    }
+    .leke-integrationHeader-message{
+        display: flex;
+        align-items: center;
+        margin-right:34px;
+        .icon-notice{ // 消息logo样式
+            margin-right: 5px;
+            font-size: 20px;
+        }
+        .leke-integrationHeader-count{
+            height: 16px;
+            display: flex;
+            align-items: center;
+            padding:0 5px;
+            background: #f7785f;
+            border-radius: 8px;
+            color: #fff;
+            margin-left: 2px;
+            position: relative;
+            top: -9px;
+        }
+    }
+    .leke-integrationHeader-user{
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        height:100%;
+        .leke-integrationHeader-portrait img{
+            display: block;
+            max-width: 25px;
+            max-height:25px;
+            border-radius: 50%;
+        }
+        .leke-integrationHeader-userName{
+            display: block;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            text-align: center;
+            margin: 0 10px 0 5px;
+            color:#fff;
+        }
+        .leke-icon-down-fill{
+            color:#fff;
+            margin-top:2px;
+        }
+    }
+    .leke-integrationHeader-login{
+        display: flex;
+        align-items: center;
+        color:#fff;
+        margin-right: 30px;
+        span{
+            margin-left:8px;
+            margin-right: 8px;
+        }
+    }
+}
+.leke-integrationHeader-role-list{
+    width: 133px;
+    box-sizing: content-box;
+    font-size: 14px;
+    width:100%;
+    color:@text-color;
+    a{
+        color: inherit;
+    }
+    li{
+        padding:0 10px;
+        margin:10px 0;
+        box-sizing: border-box;
+        &:first-child{
+            border-bottom: #ececec 1px solid;
+            padding-bottom: 8px;
+        }
+        a{
+            line-height: 26px;
+            width: 100%;
+            border-radius: @radius;
+            color:inherit;
+            display: inline-block;
+            text-align: center;
+            &:hover{
+                background-color: #d2f0ed;
+                color: @base-color;
+            }
+        }
+        .leke-indent{
+            width:31px;
+            font-size: 12px;
+            text-align: center;
+        }
+        &.leke-role-current{
+            a{
+                background-color: #d2f0ed;
+                color: @base-color;
+            }
+        }
+    }
+}

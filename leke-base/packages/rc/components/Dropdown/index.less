@@ -1,0 +1,94 @@
+@import "../../less/theme.less";
+@import "../Popover/index.less";
+@import "../Menu/index.less";
+@keyframes slide-open {
+  0% {
+    transform: scaleY(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+@keyframes slide-close {
+  0% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleY(0.8);
+    opacity: 0;
+  }
+}
+.leke-dropdown.leke-open {
+  animation-name: slide-open;
+}
+.leke-dropdown.leke-close {
+  animation-name: slide-close;
+}
+.leke-option {
+  box-sizing: border-box;
+  cursor: pointer;
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+  padding-left: 12px;
+  padding-right: 12px;
+  transition: all 0.3s;
+  color: @text-color;
+  &.leke-option-active {
+    background-color: @hover-background-color;
+  }
+  &.leke-option-selected {
+    background-color: @click-background-color;
+  }
+  &.leke-option-disabled {
+    color: @disable-color;
+    cursor: default;
+  }
+}
+.splitfill{
+  color: #fff;  
+}
+.rBtn{
+  border-radius: 0 4px 4px 0 !important;
+  border-left: none !important;
+  width: 32px !important;
+  min-width: 32px !important;
+}
+
+.leke-btn-dropdown{
+  display: inline-flex;
+}
+.leke-btn-dropdown .leke-btn{
+  padding: 0 8px;
+}
+.leke-btn-dropdown .leke-dropdown-default{
+  border-radius: 4px 0 0 4px;
+}
+
+.leke-btn-dropdown .leke-dropdown-disabled{
+  cursor: not-allowed;
+  opacity: 0.4;
+  border-radius: 4px 0 0 4px;
+}
+.leke-btn-dropdown .leke-divider{
+  display: inline-block;
+  width: 1px;
+  height: 32px;
+  background-color: #1FB5AB;
+  z-index: 100;
+}
+.leke-radius{
+  z-index: 99;
+  border-radius: 4px 0 0 4px !important;
+  border-right: none !important
+}
+
+.leke-dropdown-submenu-arrow {
+  position: absolute;
+  right: 8px;
+  font-size: 10px;
+  transform: rotate(270deg);
+}

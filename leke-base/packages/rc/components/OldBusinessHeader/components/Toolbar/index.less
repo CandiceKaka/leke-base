@@ -1,0 +1,144 @@
+.c-sidebar{
+    position: fixed;
+    right: 10px;
+    bottom: 80px;
+    z-index: 6;
+    li{
+        margin: 1px 0 1px 0;
+        width: 50px;
+        height: 50px;
+        background: #fff;
+        a{
+            display: block;
+            width: 50px;
+            height: 50px;
+            background: url('https://static.leke.cn/images/common/sidebar.png') no-repeat;
+        }
+    }
+    .note{
+        a{
+            background-position: 0 0;
+            &:hover{
+                background-position: -55px 0;
+            }
+        }
+    }
+    .question{
+        a{
+            background-position: 0 -55px;
+            &:hover{
+                background-position: -55px -55px;
+            }
+        }
+    }
+    .answer{
+        a{
+            background-position: 0 -275px;
+            &:hover{
+                background-position: -55px -275px;
+            }
+        }
+    }
+    .mobile{
+        position: relative;
+        a{
+            background-position: 0 -110px;
+            &:hover{
+                background-position: -55px -110px;
+            }
+        }
+        .tdc{
+            display: none;
+            width: 232px;
+            position: absolute;
+            right: 52px;
+            top: -66px;
+            .download, .star{
+                float: left;
+                padding: 8px 0;
+                width: 115px;
+                background-color: #fff;
+                box-shadow: 1px 1px 2px #ccc;
+                p{
+                    margin-bottom: 4px;
+                    font-weight: 700;
+                    text-align: center;
+                }
+                &:after{
+                    content: "";
+                    display: block;
+                    margin: 0 auto;
+                    width: 104px;
+                    height: 102px;
+                }
+            }
+            .download{
+                margin-right: 1px;
+                &:after{
+                    background: url('https://static.leke.cn/images/common/download-tdc.jpg') no-repeat;
+                }
+            }
+            .star{
+                &:after{
+                    background: url('https://static.leke.cn/images/common/star-tdc.jpg') no-repeat;
+                }
+            }
+        }
+        &:hover{
+            background-color: #00bb9c;
+            a{
+                color: #fff;
+            }
+            .tdc{
+                display: block;
+            }
+        }
+    }
+    .support{
+        a{
+            background-position: 0 -165px;
+            &:hover{
+                background-position: -55px -165px;
+            }
+        }
+    }
+    .helpCenter{
+        a{
+            background-position: 0 -330px;
+            &:hover{
+                background-position: -55px -330px;
+            }
+        }
+    }
+    .gotop{
+        a{
+            background-position: 0 -220px;
+            &:hover{
+                background-position: -55px -220px;
+            }
+        }
+    }
+}
+.hide{
+    display: none;
+}
+.gotop-extra{
+    position: fixed;
+    right: 10px;
+    bottom: 80px;
+    z-index: 6;
+    display: none;
+    a{
+        display: block;
+        width: 50px;
+        height: 50px;
+        background: url('https://static.leke.cn/images/common/sidebar.png') no-repeat;
+        background-position: 0 -220px;
+        &:hover{
+            background-position: -55px -220px;
+        }
+    }
+}
+.gotop-extra-show{
+    display: block;
+}

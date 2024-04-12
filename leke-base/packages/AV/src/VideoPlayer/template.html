@@ -1,0 +1,53 @@
+<div class="leke-video-root-container">
+    <input class="leke-video-input">
+    <video></video>
+    <div class="leke-video-mask"><img class="paused-icon" src="https://static.leke.cn/scripts/common/player/images/paused.png"></div>
+    <div class="leke-audio-suspend">
+        <img class="paused-icon" src="https://static.leke.cn/scripts/common/player/images/paused.png">
+    </div>
+    <div class="leke-audio-play"></div>
+    <div class="leke-audio-init"></div>
+    <div class="leke-video-control-bar">
+        <div class="video-play-wrap"><i class="video-icon icon_weikebofang"></i></div>
+        <div class="video-time-wrap"><span class="currentTime">00:00</span>/<span class="duration">00:00</span></div>
+        <div class="video-progress-wrap">
+            <div class="video-tooltip"><span></span></div>
+            <div class="slider-container">
+                <div class="slider-rail"></div>
+                <div class="buffer-rail"></div>
+                <div class="slider-track"></div>
+                <div class="slider-step"></div>
+                <div class="scale-rail"></div>
+                <div class="slider-handle"></div>
+            </div>
+        </div>
+        <div class="video-volume-wrap">
+            <div class="video-volume-container">
+                <div class="volume-num">100</div>
+                <div class="volume-slider-container">
+                    <div class="slider-vertical-container">
+                        <div class="slider-rail"></div>
+                        <div class="buffer-rail"></div>
+                        <div class="slider-track" style="height: 100%;"></div>
+                        <div class="slider-step" style="height: 100%;"></div>
+                        <div class="scale-rail"  style="height: 100%;"></div>
+                        <div class="slider-handle" style="bottom: 100%;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="volume-icon"><i class="video-icon icon_shengyin"></i></div>
+        </div>
+        <div class="video-fullscreen-container"><i class="video-icon icon_quanping"></i></div>
+    </div>
+    <div class="leke-error-wrap">
+        <div class="error-container"><img class="error-icon"
+                src="https://static.leke.cn/scripts/common/player/images/failed.png" />
+            <p>抱歉，您访问的音/视频无法播放，您可以尝试以下方式</p><button class='error-btn' onclick="window.location.reload()">刷新一下</button>
+        </div>
+    </div>
+    <div class="leke-loading-container"><img class="loading-icon"
+            src='https://static.leke.cn/scripts/common/player/images/loading.gif' />
+        <p>视频加载中</p>
+    </div>
+    <div class="leke-video-fullscreen-toast">按<span>Esc</span>即可退出全屏模式</div>
+</div>

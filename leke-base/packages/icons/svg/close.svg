@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>关闭</title>
+    <g id="关闭" stroke="none" stroke-width="1" fill="none">
+        <g id="编组-3" transform="translate(512.000000, 512.000000) rotate(45.000000) translate(-512.000000, -512.000000) ">
+            <rect id="矩形" stroke="#979797" fill="#D8D8D8" opacity="0" x="0" y="0" width="1024" height="1024"></rect>
+            <path d="M100,476 L924,476 C943.882251,476 960,492.117749 960,512 C960,531.882251 943.882251,548 924,548 L100,548 C80.117749,548 64,531.882251 64,512 C64,492.117749 80.117749,476 100,476 Z" id="矩形" fill="#262626" transform="translate(512.000000, 512.000000) rotate(90.000000) translate(-512.000000, -512.000000) "></path>
+            <path d="M100,476 L924,476 C943.882251,476 960,492.117749 960,512 C960,531.882251 943.882251,548 924,548 L100,548 C80.117749,548 64,531.882251 64,512 C64,492.117749 80.117749,476 100,476 Z" id="矩形" fill="#262626" transform="translate(512.000000, 512.000000) rotate(180.000000) translate(-512.000000, -512.000000) "></path>
+        </g>
+    </g>
+</svg>

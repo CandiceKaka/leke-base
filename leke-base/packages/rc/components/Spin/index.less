@@ -1,0 +1,240 @@
+@import "../../less/theme.less";
+
+@default-size: 70px; // 整体占位大小
+@default-dot-size: 15px; // 每一个圆点大小
+@default-size-margin: 2.5px; // 距离边框距离
+@default-size-space: 10px; // 圆点间距离
+
+@small-size: 50px; // 整体占位大小
+@small-dot-size: 10px; // 每一个圆点大小
+@small-size-margin: 4px; // 距离边框距离
+@small-size-space: 6px; // 圆点间距离
+
+@animation-duration: 1.8s; // 单次动画时长
+
+// 根据大小动态生成动画名称以及各种大小间距
+.keyframes (@size) {
+  @dotA-name: e('dotA-@{size}');
+  @dotB-name: e('dotB-@{size}');
+  @dotC-name: e('dotC-@{size}');
+  @dotD-name: e('dotD-@{size}');
+  @size-margin: if(@size=small,@small-size-margin,@default-size-margin); // 离边框的距离
+  @size-space: if(@size=small,@small-size-space,@default-size-space); // 圆点间距
+  @dot-size: if(@size=small,@small-dot-size,@default-dot-size); // 圆点大小
+  @frist-index: @size-margin; // 第一个圆点x轴
+  @second-index: @size-margin + @size-space + @dot-size; // 第二个圆点x轴
+  @third-index: @size-margin + (@size-space + @dot-size) * 2; // 第三个圆点x轴
+  
+  @keyframes @dotA-name{
+    0% {
+      transform:scale(1);
+      left: @second-index;
+    }
+    25%{
+      transform:scale(1);
+      left: @third-index;
+    }
+    49.9%{
+      transform:scale(0);
+      left: @third-index;
+    }
+    50%{
+      transform:scale(0);
+      left: @frist-index;
+    }
+    75% {
+      transform:scale(1);
+      left: @frist-index;
+    }
+    100% {
+      transform:scale(1);
+      left: @second-index;
+    }
+  }
+
+  @keyframes @dotB-name {
+    0%{
+      transform:scale(1);
+      left: @third-index;
+    }
+    24.9%{
+      transform:scale(0);
+      left: @third-index;
+    }
+    25%{
+      transform:scale(0);
+      left: @frist-index;
+    }
+    50% {
+      transform:scale(1);
+      left: @frist-index;
+    }
+    75% {
+      transform:scale(1);
+      left: @second-index;
+    }
+    100% {
+      transform:scale(1);
+      left: @third-index;
+    }
+  }
+  
+  @keyframes @dotC-name {
+    0%{
+      transform:scale(0);
+      left: @frist-index;
+    }
+    25% {
+      transform:scale(1);
+      left: @frist-index;
+    }
+    50% {
+      transform:scale(1);
+      left: @second-index;
+    }
+    75%{
+      transform:scale(1);
+      left: @third-index;
+    }
+    99.9%{
+      transform:scale(0);
+      left: @third-index;
+    }
+    100%{
+      transform:scale(0);
+      left: @frist-index;
+    }
+  }
+  
+  @keyframes @dotD-name {
+    0% {
+      transform:scale(1);
+      left: @frist-index;
+    }
+    25% {
+      transform:scale(1);
+      left: @second-index;
+    }
+    50%{
+      transform:scale(1);
+      left: @third-index;
+    }
+    74.9%{
+      transform:scale(0);
+      left: @third-index;
+    }
+    75%{
+      transform:scale(0);
+      left: @frist-index;
+    }
+    100% {
+      transform:scale(1);
+      left: @frist-index;
+    }
+  }
+}
+
+.dot-classes(@size) {
+  @dotA-name: e('dotA-@{size}');
+  @dotB-name: e('dotB-@{size}');
+  @dotC-name: e('dotC-@{size}');
+  @dotD-name: e('dotD-@{size}');
+  .leke-spin-dotA {
+    opacity: 1;
+    animation-name: @dotA-name;
+  }
+
+  .leke-spin-dotB {
+    opacity: 0.8;
+    animation-name: @dotB-name;
+  }
+
+  .leke-spin-dotC {
+    opacity: 0.6;
+    animation-name: @dotC-name;
+  }
+
+  .leke-spin-dotD {
+    opacity: 0.4;
+    animation-name: @dotD-name;
+  }
+}
+
+.leke-spin-bg {
+  display: inline-block;
+
+  .leke-spin-tip {
+    color: @base-color;
+    font-size: 14px;
+  }
+  
+  .leke-spin-animation {
+    width: @default-size;
+    height: @default-size;
+    position: relative;
+    display: flex;
+    align-items: center;
+    .keyframes(default);
+    .dot-classes(default);
+  
+    & > i {
+      display:inline-block;
+      width: @default-dot-size;
+      height: @default-dot-size;
+      border-radius: 50%;
+      background-color: @base-color;
+      position: absolute;
+      animation-timing-function: ease;
+      animation-duration: @animation-duration;
+      animation-iteration-count: infinite;
+    }
+  }
+
+  .leke-spin-animation-small {
+    width: @small-size;
+    height: @small-size;
+    .keyframes(small);
+    .dot-classes(small);
+  
+    & > i {
+      width: @small-dot-size;
+      height: @small-dot-size;
+    }
+  }
+}
+
+
+.leke-spin-wrapper{
+  position: relative;
+
+  .leke-spin-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+
+    .leke-spin-animation {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin: -@default-size / 2;
+    }
+
+    .leke-spin-animation-small {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin: -@small-size / 2;
+    }
+  }
+
+  .leke-spin-blur {
+    clear: both;
+    overflow: hidden;
+    opacity: 0.5;
+    user-select: none;
+    pointer-events: none;
+  }
+}

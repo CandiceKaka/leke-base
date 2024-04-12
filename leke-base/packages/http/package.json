@@ -1,0 +1,23 @@
+{
+  "name": "@leke/http",
+  "version": "1.0.3",
+  "description": "",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "rimraf lib && gulp"
+  },
+  "author": "",
+  "license": "ISC",
+  "files": [
+    "package.json",
+    "lib"
+  ],
+  "devDependencies": {
+    "gulp-typescript": "^6.0.0-alpha.1"
+  },
+  "dependencies": {
+    "axios": "^0.21.0",
+    "qs": "^6.9.4"
+  }
+}

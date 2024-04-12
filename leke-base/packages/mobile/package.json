@@ -1,0 +1,37 @@
+{
+  "name": "@leke/mobile",
+  "version": "0.1.3",
+  "description": "前端移动端组件库",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "author": "zhoujd@cnstrong.cn",
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.leke.cn/frontend/fe-basics/leke-base"
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "rimraf es && rimraf lib && rimraf style && gulp",
+    "major": "standard-version -r major",
+    "minor": "standard-version -r minor",
+    "patch": "standard-version -r patch --skip.tag"
+  },
+  "files": [
+    "package.json",
+    "lib",
+    "es",
+    "style",
+    "less"
+  ],
+  "peerDependencies": {
+    "react": ">=16.8.6",
+    "react-dom": ">=16.8.6"
+  },
+  "dependencies": {
+    "@leke/hooks": "^1.0.4",
+    "@leke/http": "^1.0.1",
+    "@leke/icons": "^1.0.7",
+    "classnames": "^2.2.6",
+    "@cnstrong/m-calendar": "^1.0.1"
+  }
+}

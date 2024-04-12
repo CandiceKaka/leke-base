@@ -1,0 +1,178 @@
+﻿ul{
+	margin:0;
+	padding:0;
+}
+li{float:left;list-style:none;}
+.tabMenu svg{
+	vertical-align: -0.125em;
+}
+.tabTitle{
+	display: inline-block;
+	overflow: hidden;
+	border:solid #1fb5ab 1px;
+	border-radius: 4px;
+	margin-bottom: 10px;
+}
+.tabTitle li{
+	cursor: pointer;
+	width: 108px;
+	height:38px;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color:#1fb5ab;
+	font-size: 16px;
+}
+.tabTitle li:not(:first-child){
+	border-left:solid #1fb5ab 1px;
+}
+.tabTitle li.current{
+	background-color: #1fb5ab;
+	color:#fff;
+}
+.tabTitle .icon{
+	display: inline-block;
+	font-size: 20px;
+	background-repeat: no-repeat;
+	margin-right:6px;
+}
+.tabContent{
+	border: solid 1px rgba(0, 0, 0, 0.25);
+	position: relative;
+	background: #fff;
+	margin-bottom: 24px;
+}
+.math-template{
+	padding-bottom: 24px;
+}
+.math-template:before,.math-canvas:before{
+	position: absolute;
+	top:-8px;
+	display: block;
+	content: '';
+	width: 14px;
+	height:14px;
+	background: #fff;
+	transform: rotate(45deg);
+	border-left: solid 1px rgba(0, 0, 0, 0.25);
+	border-top: solid 1px rgba(0, 0, 0, 0.25);
+}
+.math-template:before{
+	left:50px;
+}
+.math-canvas:before{
+	left:158px;
+}
+.mathIcon{
+	padding:0 16px;
+	margin-top:24px;
+	display: flex;
+	flex-wrap: wrap;
+}
+.mathIcon li{
+	cursor: pointer;
+	width:32px;
+	height:32px;
+	margin:5px;
+	background-image:url(math.png);
+	background-repeat: no-repeat;
+}
+.mathIcon li:hover{
+	border-color: #1fb5ab;
+}
+
+.tabContent div.mathBox div.more{
+	width:95%;
+	text-align:right;
+	padding:5px;
+	cursor:pointer;
+}
+#_formula_result{
+	min-height:88px;
+	border:solid rgba(0, 0, 0, 0.25) 1px;
+	iframe{
+		width:100%;
+		height:100%;
+		border:0;
+		vertical-align: top;
+	}
+}
+.math-canvas{
+	position: relative;
+	width:100%;
+	height:292px;
+}
+.math-canvas .img-preview{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 2;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.handle-group{
+	position: absolute;
+	z-index: 3;
+	right:0;
+	top:0;
+	background-color: #f0f0f0;
+	border-bottom: solid 1px rgba(0, 0, 0, 0.25);
+	border-left: solid 1px rgba(0, 0, 0, 0.25);
+	box-sizing: border-box;
+	width: 208px;
+	padding: 0 16px;
+	height:40px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.handle-group .icon{
+	display: inline-block;
+	width:24px;
+	background-repeat: no-repeat;
+	cursor: pointer;
+	color:#333;
+}
+.handle-group .disabled{
+	cursor: default;
+	color:#999999;
+}
+.handle-group .line{
+	width: 1px;
+	height: 20px;
+	background-color: rgba(0, 0, 0, 0.15);
+}
+.handle-group .upload{
+	height:21px;
+	overflow: hidden;
+}
+#canvas{
+	width: 100%;
+	height:100%;
+	vertical-align: middle;
+}
+.create-box{
+	width:100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 16px;
+}
+.create-box span{
+	font-size: 16px;
+	font-weight: 700;
+}
+.create-box .preview-btn{
+	outline: none;
+	border:0;
+	width: 84px;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	background-color: #1fb5ab;
+	border-radius: 4px;
+	color: #fff;
+	cursor: pointer;
+}

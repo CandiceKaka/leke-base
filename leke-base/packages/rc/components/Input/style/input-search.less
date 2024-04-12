@@ -1,0 +1,18 @@
+// @baseCls:~'leke-input-search';
+@import "./vars.less";
+@import './mixin.less';
+
+.leke-input-search{
+  display: inline-flex;
+  .search-input{
+    width: 0;
+    min-width: 114px;
+    flex-grow: 1;
+    border-radius: @border-radius-base 0 0 @border-radius-base;
+  }
+  .search-button{
+    border-radius: 0 @border-radius-base @border-radius-base 0;
+    min-width: 0px;
+    transform: translate(-1px,0);
+  }
+}

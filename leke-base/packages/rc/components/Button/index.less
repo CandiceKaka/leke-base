@@ -1,0 +1,288 @@
+@import "../../less/theme.less";
+@import "./mixins.less";
+
+@secondary-color: #8c8c8c;
+@secondary-hover-color: #bfbfbf;
+@secondary-click-color: #595959;
+@leke-btn-disabled: #bbe9df;
+
+// 警示按钮
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.leke-btn {
+  position: relative;
+  display: inline-block;
+  font-weight: 400;
+  white-space: nowrap;
+  text-align: center;
+  background-image: none;
+  border: 1px solid transparent;
+  transition: all .3s cubic-bezier(.645, .045, .355, 1);
+  outline: 0;
+  height: 32px;
+  padding: 0 15px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &-large {
+    .type(104px, 40px, 16px)
+  }
+
+  &-middle {
+    .type(84px, 32px, 14px)
+  }
+
+  &-small {
+    .type(68px, 28px, 12px)
+  }
+
+  &-icon-only {
+    width: 32px;
+    height: 32px;
+    padding: 2.4px 0;
+    font-size: 16px;
+
+    &.leke-btn-large {
+      width: 40px;
+      height: 40px;
+      font-size: 16px;
+    }
+
+    &.leke-btn-middle {
+      width: 32px;
+      height: 32px;
+      font-size: 14px;
+    }
+
+    &.leke-btn-small {
+      width: 28px;
+      height: 28px;
+      font-size: 12px;
+    }
+
+    & .leke-btn-content {
+      margin-left: 8px;
+    }
+  }
+
+  &-circle {
+    &.leke-btn-large {
+      width: 40px;
+      height: 40px;
+      padding: 4.9px 0;
+      font-size: 18px;
+      min-width: 40px;
+      border-radius: 50%;
+      text-align: center
+    }
+
+    &.leke-btn-middle {
+      min-width: 32px;
+      border-radius: 50%;
+      text-align: center
+    }
+
+    &.leke-btn-small {
+      min-width: 28px;
+      border-radius: 50%;
+      text-align: center
+    }
+  }
+
+  &-loading {
+    position: relative;
+
+    &::before {
+      display: block;
+      position: absolute;
+      top: -1px;
+      right: -1px;
+      bottom: -1px;
+      left: -1px;
+      z-index: 1;
+      background: #fff;
+      opacity: 0.35;
+      border-radius: inherit;
+      transition: opacity 0.2s;
+      content: "";
+      pointer-events: none;
+    }
+
+    & .leke-btn-content {
+      margin-left: 8px;
+    }
+  }
+
+  &-block {
+    width: 100%;
+  }
+
+  &-content {
+    // vertical-align: middle;
+  }
+
+  &-default {
+    .btn-default(@base-color, @hover-color, @click-color);
+  }
+
+  &-dashed {
+    .btn-dashed(@base-color, @hover-color, @click-color)
+  }
+
+  &-secondary {
+    .btn-secondary(@secondary-color, @secondary-hover-color, @secondary-click-color);
+  }
+
+  &-link {
+    .btn-link(@base-color, @hover-color, @click-color)
+  }
+
+  &-main {
+    .btn-main(@base-color, @hover-color, @click-color);
+    &::after{
+      color: @base-color;
+    }
+  }
+
+  &:not([btn-click-animating=false]):not([class*="leke-btn-link"]) {
+    @keyframes clickAnimating {
+      from {
+        opacity: 0.3;
+        box-shadow: 0 0 1px 2px;
+      }
+      to {
+        opacity: 0;
+        box-shadow: 0 0 1px 6px;
+      }
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      opacity: 0;
+      animation: clickAnimating .3s ease-in-out;
+      z-index: -1;
+    }
+  }
+}
+
+.leke-btn-loading-icon,
+.leke-btn-loading-icon:after {
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+}
+
+.leke-btn-loading-icon {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 10px;
+  position: relative;
+  border-top: 2px solid transparent;
+  border-right: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+  border-left: 2px solid #ffffff;
+  animation: spin 1.1s infinite linear;
+}
+
+.leke-content {
+  display: inline-block;
+}
+
+.leke-round {
+  border-radius: 40px;
+}
+
+.leke-btnBackgroundGhost {
+  color: #fff;
+  border-color: #fff;
+}
+
+.leke-btnBackgroundGhost.leke-btn-main {
+  background: #bbe9df;
+  border: none;
+  color: @base-color;
+  text-shadow: none;
+}
+
+.leke-btnBackgroundGhost.leke-btn-main:hover {
+  background-color: #fff;
+}
+
+.leke-btnBackgroundGhost.leke-btn-default {
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  text-shadow: none;
+}
+
+.leke-btnBackgroundGhost.leke-btn-default:hover {
+  color: @base-color;
+  background-color: #fff;
+}
+
+.leke-btnBackgroundGhost.leke-btn-dashed {
+  background: transparent;
+  border: 1px dashed #fff;
+  color: #fff;
+  text-shadow: none;
+}
+
+.leke-btnBackgroundGhost.leke-btn-dashed:hover {
+  color: @base-color;
+  border: none;
+  background-color: #fff;
+}
+
+.leke-abtnBackgroundGhost.leke-btn-main[disabled],
+.leke-abtnBackgroundGhost.leke-btn-main[disabled]:hover {
+  background-color: #fff;
+  color: #cccccc;
+  cursor: not-allowed;
+}
+
+.leke-btn-main[disabled]:hover,
+.leke-btn-main[disabled] {
+  background-color: #d9d9d9;
+  .btnDisabled(#fff);
+}
+
+.leke-btn-default[disabled]:hover,
+.leke-btn-default[disabled] {
+  border: 1px solid #d9d9d9;
+  .btnDisabled(#d9d9d9);
+}
+
+.leke-btn-secondary[disabled]:hover,
+.leke-btn-secondary[disabled] {
+  border: 1px solid #d9d9d9;
+  .btnDisabled(#d9d9d9);
+}
+
+.leke-btn-dashed[disabled]:hover,
+.leke-btn-dashed[disabled] {
+  border: 1px dashed #d9d9d9;
+  .btnDisabled(#d9d9d9);
+}
+
+.leke-btn-link[disabled]:hover,
+.leke-btn-link[disabled] {
+  .btnDisabled(#d9d9d9);
+}

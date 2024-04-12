@@ -1,0 +1,24 @@
+@PAUSED_URL:'https://static.leke.cn/scripts/common/player/images/icon_weikezanting.png';
+@PLAY_URL:'https://static.leke.cn/scripts/common/player/images/icon_weikebofang.png';
+
+.video-play-wrap {
+    position: relative;
+    order: 1;
+    margin-right: 24px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .video-icon.icon_weikebofang,
+    .video-icon.icon_weikezanting {
+        width: 32px;
+        height: 32px;
+    }
+    .video-icon.icon_weikebofang{
+        background-image: url(@PLAY_URL);
+    }
+    .video-icon.icon_weikezanting{
+        background-image: url(@PAUSED_URL);
+    }
+}

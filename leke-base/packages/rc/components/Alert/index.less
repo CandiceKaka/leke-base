@@ -1,0 +1,131 @@
+@import "../../less/theme.less";
+@import "../../less/mixins.less";
+
+@alertPreFixCls: leke-alert;
+// Alert组件
+@success-border-color: #64D0C1;
+@success-fill-background-color: #E6F6F1;
+@success-icon-color: #1FB5AB;
+@info-border-color: #99D1FF;
+@info-fill-background-color: #F0FAFF;
+@info-icon-color: #479FFF;
+@error-border-color: #FF9E99;
+@error-fill-background-color: #FEF2F0;
+@error-icon-color: #FF4848;
+@warning-border-color: #FFC552;
+@warning-fill-background-color: #FFF9E6;
+@warning-icon-color: #FF9900;
+@alert-message-font-size: @font-size;
+@alert-title-font-size: 16px;
+@alert-text-color: #262626;
+@alert-link-btn: #1FB5AB;
+@alert-close-icon-color: #8C8C8C;
+@keyframes alert-close {
+  0%{
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  100%{
+    transform: scaleY(0.6);
+    opacity: 0;
+  }
+}
+
+.@{alertPreFixCls} {
+  // 关闭动画
+  &-close {
+    animation-name: alert-close;
+    animation-duration: 300ms;
+    animation-timing-function:cubic-bezier(0.23,1,0.32,1);
+  }
+  // Alert的布局
+  &-container {
+    box-sizing: border-box;
+    display: flex;
+    transition: all .3s;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 8px 16px;
+    border-radius: @radius;
+    border: 1px solid transparent;
+    margin: 10px auto;
+    .@{alertPreFixCls}-icon-box {
+      margin-right: 8px;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+    }
+  }
+  &-has-title-container {
+    align-items: flex-start;
+    padding: 16px 24px;
+    .@{alertPreFixCls}-icon-box.@{alertPreFixCls}-has-title-icon-box {
+      margin-right: 12px;
+      font-size: 18px;
+      margin-top: 1px;
+    }
+  }
+  &-container-success {
+    border-color: @success-border-color;
+    background-color: @success-fill-background-color;
+    .@{alertPreFixCls}-icon-box > i {
+      color: @success-icon-color;
+    }
+  }
+  &-container-error {
+    border-color: @error-border-color;
+    background-color: @error-fill-background-color;
+    .@{alertPreFixCls}-icon-box > i {
+      color: @error-icon-color;
+    }
+  }
+  &-container-info {
+    border-color: @info-border-color;
+    background-color: @info-fill-background-color;
+    .@{alertPreFixCls}-icon-box > i {
+      color: @info-icon-color;
+    }
+  }
+  &-container-warning {
+    border-color: @warning-border-color;
+    background-color: @warning-fill-background-color;
+    .@{alertPreFixCls}-icon-box > i {
+      color: @warning-icon-color;
+    }
+  }
+
+  // close按钮
+  &-close-box {
+    font-size: 12px;
+    margin-left: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: @alert-close-icon-color;
+    &.@{alertPreFixCls}-has-title-close-box {
+      font-size: 14px;
+    }
+  }
+
+  // 操作选项容器
+  &-action-box {
+    margin-left: 8px;
+  }
+
+  /* 内容区 */
+  &-context {
+    flex: 1;
+    width: 0;
+  }
+  &-title {
+    font-size: @alert-title-font-size;
+    font-weight: bold;
+    color: @alert-text-color;
+    margin-bottom: 8px;
+  }
+  &-message {
+    font-size: @alert-message-font-size;
+    color: @alert-text-color;
+    line-height: 22px;
+  }
+}

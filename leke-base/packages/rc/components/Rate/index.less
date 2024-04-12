@@ -1,0 +1,77 @@
+@import "../../less/theme.less";
+
+.leke-rate-container {
+  display: inline-block;
+  .leke-rate-ele {
+    display: inline-block;
+    position: relative;
+    margin-right: 8px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: .2s;
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    .leke-rate-ele-bottom {
+      user-select: none;
+      color: @disable-color;
+    }
+
+    .leke-rate-ele-top {
+      user-select: none;
+      color: #FFC552;
+      transition: .2s;
+      transition-timing-function: linear;
+      width: 0px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 2;
+      opacity: 0;
+      overflow: hidden;
+    }
+
+    .leke-rate-ghost-ele-half {
+      user-select: none;
+      width: 50%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 3;
+      opacity: 0;
+      overflow: hidden;
+    }
+    
+    .leke-rate-ghost-ele {
+      user-select: none;
+      width: 50%;
+      height: 100%;
+      position: absolute;
+      left: 50%;
+      top: 0;
+      z-index: 3;
+      opacity: 0;
+      overflow: hidden;
+    }
+
+    .leke-rate-ele-top-hover {
+      color: #FFE7A3;
+    }
+
+    .leke-rate-ele-top-full{
+      width: 100%;
+      opacity: 1;
+    }
+
+    .leke-rate-ele-top-half{
+      width: 50%;
+      opacity: 1;
+    }
+  }
+}
+
+.leke-rate-disabled {
+  pointer-events: none;
+}

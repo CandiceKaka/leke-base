@@ -1,0 +1,54 @@
+@import "../../less/theme.less";
+
+@name: leke-tag;
+
+.@{name}{
+    display: inline-flex;
+    border-radius: 2px;
+    padding: 0 8px;
+    height: 24px;
+    align-items: center;
+    margin: 4px 4px;
+    cursor: default;
+    border: 1px solid transparent;
+    box-sizing: border-box;
+    span{
+        display: inline-flex;
+    }
+    .@{name}-text{
+        font-size: 12px;
+        font-family: MicrosoftYaHei;
+    }
+    .@{name}-closeicon{
+        padding-left: 4px;
+    }
+    .@{name}-icon{
+        padding-right: 4px;
+    }
+}
+
+.preset-color(@color,@background-color,@border-color){
+    border-color: @border-color;
+    background-color: @background-color;
+    color: @color;
+}
+.@{name}-default{.preset-color(#595959,#F5F5F5,#D9D9D9)}
+.@{name}-seablue{.preset-color(#479FFF,#EBF7FF,#99D1FF)}
+.@{name}-lekegreen{.preset-color(#1FB5AB,#E6F5F1,#65CFC1)}
+.@{name}-brighteyes{.preset-color(#FF9900,#FFF9E6,#FFC552)}
+.@{name}-hotred{.preset-color(#FF4848,#FEF2F0,#FF9E99)}
+.@{name}-lime{.preset-color(#A0D911,#FCFFE6,#D3F261)}
+.@{name}-auroragreen{.preset-color(#52C41B,#F6FFED,#95DE64)}
+.@{name}-geekblue{.preset-color(#2F54EB,#D6E4FF,#85A5FF)}
+.@{name}-saucepurple{.preset-color(#722ED1,#F9F0FF,#D3ADF7)}
+.@{name}-magenta{.preset-color(#EB2F96,#FFF0F6,#FFADD2)}
+.@{name}-volcano{.preset-color(#FA541C,#FFF2E8,#FFBB96)}
+.@{name}-marigold{.preset-color(#FAB52C,#FFFCF0,#FFDD80)}
+.@{name}-sunrise{.preset-color(#FADB14,#FEFFE6,#FFFB8F)}
+.@{name}-bluefill{.preset-color(#FFFFFF,#479FFF,#479FFF)}
+.@{name}-greenfill{.preset-color(#FFFFFF,#1FB5AB,#1FB5AB)}
+.@{name}-orangefill{.preset-color(#FFFFFF,#FF9900,#FF9900)}
+.@{name}-redfill{.preset-color(#FFFFFF,#FF4848,#FF4848)}
+.@{name}-close{
+    display: none;
+}

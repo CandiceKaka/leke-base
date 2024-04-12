@@ -1,0 +1,1 @@
+export {default as demoTest} from './demoTest';

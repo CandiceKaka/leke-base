@@ -1,0 +1,18 @@
+{
+  "name": "@leke/urls",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "rimraf es && rimraf lib && gulp"
+  },
+  "author": "",
+  "license": "ISC",
+  "files": [
+    "package.json",
+    "lib",
+    "es"
+  ],
+  "devDependencies": {
+  }
+}

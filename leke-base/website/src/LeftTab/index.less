@@ -1,0 +1,65 @@
+@import "../../../packages/rc/less/theme.less";
+.left-container{
+  width:260px;
+  position: relative;
+}
+.left-tab{
+  width:260px;
+  position: fixed;
+  height: calc(100vh - 50px);
+  border-right:1px solid #f0f0f0;
+  background-color: #fff;
+  overflow-y: auto;
+  .tab-item{
+    height:40px;
+    line-height: 40px;
+    cursor: pointer;
+    padding-left:20px;
+    padding-right:20px;
+    margin-top:8px;
+    margin-bottom:8px;
+    color: #595959;
+    a{
+      display: block;
+      height:100%;
+    }
+    &:hover{
+      color: @base-color;
+    }
+    &.current{
+      color: @base-color;
+      background-color: #d2f0ed;
+      position: relative;
+      &:after{
+        position: absolute;
+        content: "";
+        display: block;
+        right:0;
+        top:0;
+        height:100%;
+        width:4px;
+        background-color: @base-color;
+        border-radius: 2px;
+      }
+    }
+  }
+  .tab-item-name{
+    margin-left:6px;
+  }
+  .tab-group{
+    font-size:14px;
+  }
+  .group-title{
+    margin-top:15px;
+    margin-bottom:15px;
+    padding-left:20px;
+    padding-right:20px;
+    font-size:16px;
+    display: block;
+    height:36px;
+    line-height: 36px;
+    cursor: default;
+    color: #262626;
+    font-weight: 700;
+  }
+}

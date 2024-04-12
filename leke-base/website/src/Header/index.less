@@ -1,0 +1,65 @@
+@import "../../../packages/rc/less/theme";
+
+.header{
+  width:100%;
+  box-shadow: 0 2px 8px #f0f1f2;
+  background-color: #fff;
+  position: fixed;
+  top:0;
+  left:0;
+  z-index: 1000;
+  .header-inner{
+    box-sizing: border-box;
+    width: calc(100vw - 50px);
+    padding-left: 20px;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo{
+    width: 96px;
+    height: 33px;
+    background: url(./logo.png) no-repeat;
+    margin-right: 100px;
+  }
+  .header-left{
+    display: flex;
+    align-items: center;
+  }
+  .nav{
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    a{
+      display: block;
+      height:100%;
+      font-size: 16px;
+      &:hover{
+        color: @base-color;
+      }
+      &+a{
+        margin-left: 30px;
+      }
+      &.current{
+        color: @base-color;
+        position: relative;
+        font-weight: 700;
+        &:after{
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          content: '';
+          height: 4px;
+          width: 100%;
+          background-color: @base-color;
+          border-radius: 2px;
+        }
+      }
+    }
+  }
+  .header-search{
+    border:0;
+    width:240px;
+  }
+}

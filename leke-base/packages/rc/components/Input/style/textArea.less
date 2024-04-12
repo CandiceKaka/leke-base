@@ -1,0 +1,48 @@
+@import "./vars.less";
+@import './mixin.less';
+
+.leke-text-area-container{
+  position: relative;
+  display: inline-block;
+  &-show-count::after {
+    display: block;
+    color: @text-color-secondary;
+    text-align: right;
+    content: attr(data-count);
+  }
+}
+.leke-text-area{
+  box-sizing: border-box;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  // min-height: @input-height-base;
+  line-height: @line-height-base;
+  vertical-align: bottom;
+  // min-height: 24px;
+  // overflow: hidden;
+  resize: vertical;
+  border-radius: @border-radius-base;
+  border: @border-width-base @border-style-base @input-border-color;
+  padding: @input-padding-vertical-base @input-padding-horizontal-base;
+  &:hover{
+    .hover()
+  }
+  &:focus{
+    .focus()
+  }
+  ::-webkit-scrollbar {
+    width: initial;
+    height: initial;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: initial;
+    box-shadow: initial;
+    background: initial;
+  }
+  ::-webkit-scrollbar-track {
+    box-shadow: initial;
+    border-radius: initial;
+    background: initial;
+  }
+}

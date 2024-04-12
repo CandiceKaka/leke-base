@@ -1,0 +1,118 @@
+*, *::before, *::after{
+	box-sizing: border-box;
+}
+
+.c-businesshead{
+	width: 100%;
+	height: 72px;
+	background: #0ba29a;
+	.c-businesshead__auto{
+		width: 1200px;
+		line-height: 72px;
+		margin: 0 auto;
+		// 右侧用户信息
+		.c-businesshead__person{
+			position: relative;
+			float: right;
+			&:hover{
+				.c-businesshead__showHidden{
+					-o-transform:rotate(-180deg);
+					-ms-transform:rotate(-180deg);
+					-moz-transform:rotate(-180deg);
+					-webkit-transform:rotate(-180deg);
+					transform:rotate(-180deg);
+				}
+			}
+			.c-businesshead__headframe{
+				width: 44px;
+				height: 44px;
+				float: left;
+				margin-top: 14px;
+				border-radius: 50% 50%;
+				background-color: #fff;
+				img{
+					width: 42px;
+					height: 42px;
+					margin: 1px;
+					border-radius: 50% 50%;
+					vertical-align: baseline;
+				}
+			}
+			.c-businesshead__choose{
+				min-width: 40px;
+				max-width: 70px;
+				float: left;
+				color: #fff;
+				margin: 0 10px 0 8px;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				overflow: hidden
+			}
+			.c-businesshead__showHidden{
+				width: 12px;
+				height: 8px;
+				display: block;
+				float: left;
+				margin-top: 33px;
+				background: url('https://static.leke.cn/images/common/header/pulldown.png') no-repeat center;
+			}
+			.c-businesshead__myselfcentre{
+				position: absolute;
+				width: 130px;
+				height: 80px;
+				line-height: 26px;
+				z-index: 10;
+				top: 73px;
+				right: 1px;
+				padding: 0 5px;
+				margin: -1px;
+				display: none;
+				text-align: center;
+				background: #fff;
+				border-radius: 0 0 4px 4px;
+				box-shadow: 0 2px 6px rgba(0,0,0,.2);
+				ul{
+					i{
+						position: absolute;
+						display: block;
+						top: -7px;
+						left: 64px;
+						width: 12px;
+						height: 8px;
+						transform: rotate(180deg);
+						background: url('https://static.leke.cn/images/common/header/pulldown.png') no-repeat center;
+					}
+					li{
+						height: 26px;
+						line-height: 26px;
+						font-size: 14px;
+						margin: 8px 0;
+						overflow: hidden;
+						white-space: nowrap;
+						text-overflow: ellipsis;
+						border-radius: 4px;
+						a{
+							color: #666;
+						}
+						&:hover, &:active{
+							background: #d2f0ed;
+							a{
+								color: #1fb5ab
+							}
+						}
+						&:first-child{
+							margin-top: 10px
+						}
+					}
+				}
+			}
+			.c-businesshead__myselfcentre-show{
+				display: block;
+			}
+		}
+	}
+    .c-businesshead__fullscreen{
+        width: auto;
+        margin: 0 40px;
+    }
+}

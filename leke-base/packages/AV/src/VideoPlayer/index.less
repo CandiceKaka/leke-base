@@ -1,0 +1,207 @@
+@import './components/ControlBar/index.less';
+@import './components/FullControl/index.less';
+@import './components/PlayControl/index.less';
+@import './components/ProcessControl/index.less';
+@import './components/Slider/index.less';
+@import './components/TimeControl/index.less';
+@import './components/VolumeControl/index.less';
+
+.leke-video-root-container {
+    position: relative;
+    background: #333;
+    font-size: 0;
+    z-index: 1;
+
+    video {
+        cursor: pointer;
+        width: 100%;
+        height: 100%;
+    }
+
+    .leke-video-input {
+        width: 0;
+        height: 0;
+        padding: 0;
+        margin: 0;
+        border: 0;
+        outline: none;
+    }
+
+    .video-icon{
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        background-size: 100%;
+    }
+
+    .leke-video-mask,.leke-audio-suspend{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        cursor: pointer;
+        z-index: 2;
+        display: none;
+        .paused-icon {
+            width: 10%;
+            position: absolute;
+            right: 2%;
+            bottom: 42px;
+            z-index: 3;
+            user-select: none;
+            pointer-events: none;
+        }
+    }
+    .leke-video-mask{
+        z-index: 0;
+    }
+    .leke-audio-play,.leke-audio-suspend,.leke-audio-init{
+        position: absolute;
+        top: 0;
+        cursor: pointer;
+        z-index: -1;
+        display: none;
+        width: 100%;
+        height: 100%;
+    }
+    .leke-audio-suspend,.leke-audio-init{
+        background: url(https://static.leke.cn/images/learn/audio-pause.png) center center / cover no-repeat;
+    }
+    .leke-audio-init{
+        z-index: -2;
+    }
+    .leke-audio-play{
+        background: url(https://static.leke.cn/images/learn/audio-playing.gif) center center / cover no-repeat;
+    }
+    .leke-loading-container {
+        text-align: center;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 3;
+        display: none;
+    
+        .loading-icon {
+            width: 136px;
+            user-select: none;
+        }
+    
+        p {
+            color: #fff;
+            font-size: 16px;
+            margin-top: 24px;
+        }
+    }
+
+    .leke-error-wrap {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: #333;
+        text-align: center;
+        color: #fff;
+        font-size: 16px;
+        display: none;
+        .error-container {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+    
+            .error-icon {
+                display: block;
+                margin: 0 auto 30px;
+                width: 100px;
+            }
+    
+            p {
+                color: #fff;
+                font-size: 16px;
+            }
+    
+            button {
+                display: block;
+                margin: 24px auto 0;
+                padding: 0;
+                outline: none;
+                border: none;
+                width: 84px;
+                height: 32px;
+                line-height: 32px;
+                background-color: #1fb5ab;
+                border-radius: 4px;
+                font-size: 14px;
+                cursor: pointer;
+                color: #fff;
+    
+                &:hover {
+                    background-color: #2dc4bd;
+                }
+            }
+        }
+    }
+
+    .leke-video-fullscreen-toast {
+        box-sizing: border-box;
+        position: fixed;
+        width: 284px;
+        height: 56px;
+        left: 50%;
+        top: 46px;
+        transform: translateX(-50%);
+        font-size: 16px;
+        color: #fff;
+        padding: 16px 40px;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 999;
+        display: none;
+    
+        span {
+            padding: 8px;
+            margin: 8px;
+            border: 1px solid #fff;
+            border-radius: 4px;
+        }
+    }
+
+    &:hover {
+        .leke-video-control-bar {
+            opacity: 1;
+            transition-duration: .5s;
+        }
+    }
+}
+
+.leke-video-unsupport {
+    position: relative;
+    text-align: center;
+    background: #fff;
+
+    img {
+        width: 100%;
+        height: calc(100% - 22px);
+    }
+
+    p {
+        margin: 0;
+        padding: 0;
+        font-size: 14px;
+        text-align: center;
+    }
+}
+
+.full-video-container{
+    width: auto !important;;
+    height: auto !important;;
+    .leke-video-mask,.leke-audio-suspend{
+        .paused-icon{
+            bottom: 64px;
+        }
+    }
+}

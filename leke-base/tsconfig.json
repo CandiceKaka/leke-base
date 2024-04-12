@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "sourceMap": false,
+    "allowSyntheticDefaultImports": true,
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "jsx": "preserve",
+    "skipLibCheck": true,
+    "noImplicitAny": false,
+    "baseUrl": ".",
+    "declaration": true,
+    "paths":{
+      "@leke/icons": ["packages/icons"],
+      "@leke/rc": ["packages/rc/components/index.ts"],
+      "@leke/mobile": ["packages/mobile/components/index.ts"],
+      "@leke/hooks": ["packages/hooks/src/index.ts"],
+      "@leke/gulp-compile": ["packages/gulp-compile/index.js"],
+      "@leke/store": ["packages/store/src/index.ts"],
+      "@leke/AV": ["packages/AV/src/index.ts"],
+      "@leke/JSComponents": ["packages/JSComponents/src/index.ts"],
+      "@leke/http": ["packages/http/src/index.ts"],
+      "testUtil": ["testUtil/index.ts"]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "lib",
+    "es"
+  ]
+}

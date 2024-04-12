@@ -1,0 +1,89 @@
+@import "../../less/theme.less";
+.leke-popup{
+  position: absolute;
+  z-index:999;
+  background-color: @background-color;
+  border-radius: @radius;
+}
+.leke-popup-topLeft{
+  box-shadow: @shadow-up;
+  transform-origin: 0 100%;
+}
+.leke-popup-topCenter{
+  box-shadow: @shadow-up;
+  transform-origin: 50% 100%;
+}
+.leke-popup-topRight{
+  box-shadow: @shadow-up;
+  transform-origin: 100% 100%;
+}
+.leke-popup-bottomLeft{
+  box-shadow: @shadow-down;
+  transform-origin: 0 0;
+}
+.leke-popup-bottomCenter{
+  box-shadow: @shadow-down;
+  transform-origin: 50% 0;
+}
+.leke-popup-bottomRight{
+  box-shadow: @shadow-down;
+  transform-origin: 100% 0;
+}
+.leke-popup-leftTop{
+  box-shadow: @shadow-left;
+  transform-origin: 100% 0;
+}
+.leke-popup-leftCenter{
+  box-shadow: @shadow-left;
+  transform-origin: 100% 50%;
+}
+.leke-popup-leftBottom{
+  box-shadow: @shadow-left;
+  transform-origin: 100% 100%;
+}
+.leke-popup-rightTop{
+  box-shadow: @shadow-right;
+  transform-origin: 0 0;
+}
+.leke-popup-rightCenter{
+  box-shadow: @shadow-right;
+  transform-origin: 0 50%;
+}
+.leke-popup-rightBottom{
+  box-shadow: @shadow-right;
+  transform-origin: 0 100%;
+}
+
+.leke-open,.leke-close{
+  animation-duration:350ms;
+  animation-timing-function:cubic-bezier(0.23,1,0.32,1);
+}
+.leke-open{
+  animation-name:leke-open;
+}
+.leke-close{
+  animation-name:leke-close;
+}
+.leke-hide{
+  display: none;
+}
+@keyframes leke-open {
+  0%{
+    transform: scale(0.6,0.6);
+    opacity: 0;
+  }
+  100%{
+    transform: scale(1,1);
+    opacity: 1;
+  }
+}
+@keyframes leke-close {
+  0%{
+    transform: scale(1,1);
+    opacity: 1;
+  }
+  100%{
+    transform: scale(0.6,0.6);
+    opacity: 0;
+  }
+}

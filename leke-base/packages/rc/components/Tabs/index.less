@@ -1,0 +1,580 @@
+@import "../../less/theme.less";
+@import "../Popover/index.less";
+
+/*****************************变量************************************************/
+
+@prefix: leke-tabs;
+
+// 字体大小
+@small-font-size: 14px;
+@default-font-size: 14px;
+@large-font-size: 16px;
+
+// 普通边距
+@small-horizontal-padding: 8px 0;
+@default-horizontal-padding: 12px 0;
+@large-horizontal-padding: 15px 0;
+
+// 卡片边距
+@small-card-padding: 6px 16px;
+@default-card-padding: 8px 16px;
+@large-card-padding: 8px 16px;
+
+/*****************************函数************************************************/
+
+// 预设大小
+.leke-tabs-nav-size(@size) {
+  // 通用字体大小
+  .@{prefix}.@{prefix}-nav-@{size} .@{prefix}-nav {
+    font-size: ~"@{@{size}-font-size}";
+  }
+
+  // 普通样式
+  .@{prefix}.@{prefix}-nav-@{size}:not(.@{prefix}-nav-separate):not(.@{prefix}-nav-card):not(.@{prefix}-right):not(.@{prefix}-left)
+    .@{prefix}-nav
+    .@{prefix}-nav-wrap
+    .@{prefix}-nav-list
+    .@{prefix}-nav-item {
+    padding: ~"@{@{size}-horizontal-padding}";
+  }
+
+  // 卡片样式
+  .@{prefix}.@{prefix}-nav-@{size}.@{prefix}-nav-card:not(.@{prefix}-right):not(.@{prefix}-left)
+    .@{prefix}-nav
+    .@{prefix}-nav-wrap
+    .@{prefix}-nav-list
+    .@{prefix}-nav-item {
+    padding: ~"@{@{size}-card-padding}";
+  }
+}
+
+// 纵向布局
+.postionVertical(@postion) {
+  .@{prefix}-@{postion} {
+    flex-direction: row;
+
+    .@{prefix}-nav {
+      flex-direction: column;
+      margin: 0 11px 0;
+      align-items: inherit;
+      &::before {
+        left: inherit;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        border-bottom: none;
+        border-right: 1px solid #f0f0f0;
+      }
+
+      .@{prefix}-nav-wrap .@{prefix}-nav-list {
+        flex-direction: column;
+
+        .@{prefix}-nav-item {
+          margin: 8px 0 0 0;
+          padding: 8px 24px;
+
+          &:first-child {
+            margin: 0;
+          }
+        }
+
+        .@{prefix}-nav-bar {
+          left: inherit;
+          bottom: inherit;
+          right: 0;
+          top: 0;
+          width: 4px;
+          height: 28px;
+          transition: height 0.3s, top 0.3s, background-color 0.3s;
+        }
+      }
+
+      .@{prefix}-nav-wrap-ping-left::before {
+        content: "";
+        width: 100%;
+        height: 40px;
+        left: 0;
+        top: 0;
+        right: inherit;
+        bottom: inherit;
+        box-shadow: inset 0 10px 8px -8px rgba(10, 9, 9, 0.08);
+      }
+
+      .@{prefix}-nav-wrap-ping-right::after {
+        content: "";
+        width: 100%;
+        height: 40px;
+        left: 0;
+        bottom: 0;
+        right: inherit;
+        top: inherit;
+        box-shadow: inset 0 -10px 8px -8px rgba(0, 0, 0, 0.08);
+      }
+    }
+  }
+
+  .@{prefix}-nav-card.@{prefix}-left
+    .@{prefix}-nav
+    .@{prefix}-nav-wrap
+    .@{prefix}-nav-list
+    .@{prefix}-nav-active {
+    border-right: 1px solid #fff;
+  }
+
+  .@{prefix}-nav-card.@{prefix}-right
+    .@{prefix}-nav
+    .@{prefix}-nav-wrap
+    .@{prefix}-nav-list
+    .@{prefix}-nav-active {
+    border-left: 1px solid #fff;
+  }
+
+  .@{prefix}:not(.@{prefix}-nav-separate):not(.@{prefix}-nav-card):not(.@{prefix}-top):not(.@{prefix}-bottom)
+    .@{prefix}-nav
+    .@{prefix}-nav-wrap
+    .@{prefix}-nav-list {
+    padding: 12px 0;
+  }
+}
+
+// 右侧布局
+.postionVertical(@postion) when (@postion = right) {
+  .@{prefix}-@{postion} {
+    flex-direction: row-reverse;
+
+    .@{prefix}-nav {
+      margin: 0;
+      &::before {
+        left: 0;
+        right: inherit;
+        border-bottom: none;
+      }
+      .@{prefix}-nav-wrap .@{prefix}-nav-list .@{prefix}-nav-bar {
+        left: 0;
+        right: inherit;
+      }
+    }
+  }
+}
+// 水平布局
+.postionHorizontal(@postion) {
+  .@{prefix}.@{prefix}-@{postion} .@{prefix}-nav .@{prefix}-nav-wrap {
+    height: 100%;
+
+    .@{prefix}-nav-list {
+      height: 100%;
+    }
+  }
+
+  .@{prefix}-nav-card.@{prefix}-top
+    .@{prefix}-nav
+    .@{prefix}-nav-wrap
+    .@{prefix}-nav-list
+    .@{prefix}-nav-active {
+    border-bottom: 1px solid #fff;
+  }
+
+  .@{prefix}-nav-card.@{prefix}-bottom
+    .@{prefix}-nav
+    .@{prefix}-nav-wrap
+    .@{prefix}-nav-list
+    .@{prefix}-nav-active {
+    border-top: 1px solid #fff;
+  }
+
+  .@{prefix}:not(.@{prefix}-nav-separate):not(.@{prefix}-nav-card):not(.@{prefix}-right):not(.@{prefix}-left)
+    .@{prefix}-nav
+    .@{prefix}-nav-wrap
+    .@{prefix}-nav-list {
+    padding: 0 12px;
+  }
+}
+
+// top布局
+.postionHorizontal(@postion) when (@postion = top) {
+  .@{prefix}-@{postion} {
+    flex-direction: column;
+
+    .@{prefix}-nav {
+      margin: 0 0 11px;
+    }
+  }
+}
+
+// bottom布局
+.postionHorizontal(@postion) when (@postion = bottom) {
+  .@{prefix}-@{postion} {
+    flex-direction: column-reverse;
+
+    .@{prefix}-nav {
+      margin: 11px 0 0;
+      &::before {
+        border-bottom: none;
+        border-top: 1px solid #f0f0f0;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: inherit;
+      }
+    }
+
+    .@{prefix}-nav-bar {
+      top: 0;
+    }
+  }
+}
+
+/*****************************样式************************************************/
+
+// 基础样式
+.@{prefix} {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: 100%;
+
+  .@{prefix}-nav {
+    background-color: #ffffff;
+    font-size: 14px;
+    display: flex;
+    position: relative;
+    align-items: center;
+
+    &::before {
+      border-bottom: 1px solid #f0f0f0;
+      content: "";
+      left: 0;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+    }
+
+    .@{prefix}-nav-wrap {
+      position: relative;
+      flex: 1;
+      overflow: hidden;
+      display: flex;
+
+      .@{prefix}-nav-list {
+        display: flex;
+        transition: transform 0.3s;
+        position: relative;
+
+        .@{prefix}-nav-item {
+          white-space: nowrap;
+          margin: 0 0 0 36px;
+          padding: 12px 0;
+          cursor: pointer;
+          color: #8c8c8c;
+          user-select: none;
+          flex: none;
+          display: flex;
+          align-items: center;
+          &:hover span {
+            color: @hover-color
+          }
+
+          &:active span {
+            color: @click-color
+          }
+          &[class=~"@{prefix}-nav-item"]:hover span {
+            color: @hover-color;
+          }
+
+          &[class=~"@{prefix}-nav-item"]:active span {
+            color: @click-color;
+          }
+
+          &:first-child {
+            margin-left: 0;
+          }
+
+          .@{prefix}-nav-item-icon {
+            display: inline-block;
+            text-align: center;
+            text-rendering: optimizeLegibility;
+            text-transform: none;
+            vertical-align: -0.125em;
+            margin-right: 12px;
+          }
+
+          .@{prefix}-tabpane-close-icon {
+            display: inline-block;
+            font-size: 12px;
+            margin-left: 8px;
+            color: rgba(0, 0, 0, 0.45);
+            transition: 0.3s;
+
+            & i {
+              vertical-align: -0.125em;
+            }
+
+            &:hover {
+              color: rgba(0, 0, 0, 0.85);
+            }
+          }
+        }
+
+        .@{prefix}-nav-active {
+          color: @base-color;
+          .@{prefix}-nav-item-text {
+            color: transparent !important;
+            position: relative;
+            display: inline-block;
+            vertical-align: middle;
+
+            &::after {
+              content: attr(title);
+              color: @base-color;
+              font-weight: bolder;
+              position: absolute;
+              left: 0;
+            }
+          }
+        }
+
+        .@{prefix}-nav-disabled {
+          color: @disable-color;
+          cursor: not-allowed;
+          &:hover span {
+            color: @disable-color;
+          }
+        }
+
+        .@{prefix}-nav-bar {
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          width: 0px;
+          width: 28px;
+          height: 4px;
+          border-radius: 2px;
+          background-color: @base-color;
+          transition: width 0.3s, left 0.3s, background-color 0.3s;
+        }
+      }
+
+      .@{prefix}-nav-list-center {
+        justify-content: center;
+      }
+    }
+
+    .@{prefix}-nav-wrap-ping-left {
+      &::before {
+        content: "";
+        height: 100%;
+        width: 40px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        box-shadow: inset 10px 0 8px -8px rgba(0, 0, 0, 0.08);
+        pointer-events: none;
+        z-index: 1;
+      }
+    }
+
+    .@{prefix}-nav-wrap-ping-right {
+      &::after {
+        content: "";
+        height: 100%;
+        width: 40px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        box-shadow: inset -10px 0 8px -8px rgba(0, 0, 0, 0.08);
+        pointer-events: none;
+        z-index: 1;
+      }
+    }
+
+    .@{prefix}-more-btn {
+      min-width: 46px;
+      min-height: 35px;
+      font-size: 14px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: @text-color;
+    }
+  }
+
+  .@{prefix}-content-wrap {
+    flex: auto;
+    min-width: 0;
+    min-height: 0;
+
+    .@{prefix}-content {
+      width: 100%;
+      display: flex;
+
+      .@{prefix}-tabpane {
+        flex: none;
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .@{prefix}-tabpane-hide {
+        visibility: hidden;
+        // display: none;
+      }
+    }
+
+    .@{prefix}-content-animated {
+      transition: margin 0.3s;
+    }
+  }
+}
+
+// top布局
+.postionHorizontal(top);
+
+// bottom布局
+.postionHorizontal(bottom);
+
+// left布局
+.postionVertical(left);
+
+// right布局
+.postionVertical(right);
+
+// card布局
+.@{prefix}-nav-card {
+  &.@{prefix}-left
+    .@{prefix}-nav
+    .@{prefix}-nav-wrap
+    .@{prefix}-nav-list
+    .@{prefix}-nav-item {
+    padding: 8px 16px;
+    margin: 2px 0 0 0;
+  }
+
+  &.@{prefix}-right
+    .@{prefix}-nav
+    .@{prefix}-nav-wrap
+    .@{prefix}-nav-list
+    .@{prefix}-nav-item {
+    padding: 8px 16px;
+    margin: 2px 0 0 0;
+  }
+
+  .@{prefix}-nav .@{prefix}-nav-wrap .@{prefix}-nav-list {
+    .@{prefix}-nav-item {
+      transition: background-color 0.3s;
+      background-color: #fafafa;
+      padding: 8px 16px;
+      margin: 0 0 0 2px;
+      border: 1px solid #f0f0f0;
+      border-radius: 2px;
+      color: #595959;
+    }
+
+    .@{prefix}-nav-active {
+      color: @base-color;
+      background-color: #ffffff;
+    }
+
+    .@{prefix}-nav-disabled {
+      color: @disable-color;
+      cursor: not-allowed;
+      &:hover {
+        color: @disable-color;
+      }
+    }
+
+    .@{prefix}-nav-bar {
+      display: none;
+    }
+  }
+}
+
+// separate布局
+.@{prefix}-nav-separate .@{prefix}-nav { 
+  &::before {
+    display: none;
+  }
+
+  .@{prefix}-nav-wrap {
+    background-color: #fff;
+
+    .@{prefix}-nav-list .@{prefix}-nav-item {
+      margin: 0;
+      padding: 18px 32px;
+      position: relative;
+
+      &:first-child::before {
+        display: none;
+      }
+
+      &::before {
+        content: "";
+        width: 1px;
+        height: 14px;
+        background: #d9d9d9;
+        position: absolute;
+        left: 0;
+        top: calc(50% - 7px);
+      }
+    }
+
+    .@{prefix}-nav-bar {
+      display: none;
+    }
+  }
+}
+
+// 更多按钮
+.@{prefix}-nav-more {
+  max-height: 200px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: #ffffff;
+
+  li {
+    padding: 8px 16px;
+    cursor: pointer;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    min-width: 120px;
+  }
+
+  p:hover {
+    background-color: #ececec;
+  }
+
+  .@{prefix}-nav-more-disabled {
+    color: @disable-color;
+    cursor: not-allowed;
+    &:hover {
+      color: @disable-color;
+    }
+  }
+}
+
+// 添加按钮
+.@{prefix}-add-button {
+  font-size: 14px;
+  background-color: #fafafa;
+  min-width: 14px;
+  box-sizing: content-box;
+  padding: 9px 12px;
+  border: 1px solid #f0f0f0;
+  border-radius: 2px;
+  color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+
+  &:hover {
+    color: @hover-color;
+  }
+
+  &:active {
+    color: @click-color;
+  }
+}
+
+// 预设大小
+@sizes: small, default, large;
+
+each(@sizes, {
+  .leke-tabs-nav-size(@value);
+});

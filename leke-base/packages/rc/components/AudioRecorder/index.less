@@ -1,0 +1,118 @@
+@keyframes myfirst {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes mylast {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+@keyframes rotate{
+
+    from{transform: rotate(0deg)}
+
+    to{transform: rotate(359deg)}
+
+}
+
+.exit {
+    animation: mylast 1s;
+}
+
+.leke-record-container{
+    width: 500px;
+    .leke-record-audio-wrap {
+        height: 32px;
+        text-align: center;
+        animation: myfirst 1s;
+    
+        .leke-record-audio-container {
+            width: 338px;
+            height: 32px;
+            line-height: 32px;
+            background: #F5F5F5;
+            border-radius: 40px;
+            display: inline-block;
+    
+            .audio-btn {
+                display: inline-block;
+                vertical-align: middle;
+    
+                &-play {
+                    width: 24px;
+                    height: 24px;
+                    margin-left: 8px;
+                    background: #1FB5AB;
+                    border-radius: 50%;
+                    position: relative;
+    
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        border-top: 8px solid transparent;
+                        border-bottom: 8px solid transparent;
+                        border-right: 8px solid transparent;
+                        border-left: 8px solid #fff;
+                    }
+                }
+            }
+    
+            .audio-progress {
+                display: inline-block;
+                vertical-align: middle;
+                width: 240px;
+                height: 4px;
+                background: #D9D9D9;
+            }
+    
+            .audio-timeInfo {
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
+    
+        .leke-record-reRecord {
+            display: inline-block;
+            vertical-align: middle;
+            height: 32px;
+            cursor: pointer;
+            margin-left: 14px;
+            font-size: 12px;
+            color: #1FB5AB;
+        }
+        .leke-record-loading{
+            display: inline-block;
+            vertical-align: super;
+            height: 32px;
+            margin-left: 14px;
+            font-size: 16px;
+            color: #D9D9D9;
+            svg{
+                animation: rotate 3s linear infinite;
+            }
+        }
+        .leke-record-reUpload{
+            display: inline-block;
+            vertical-align: middle;
+            height: 32px;
+            margin-left: 14px;
+            font-size: 12px;
+            color: #595959;
+            .reUpload{
+                cursor: pointer;
+                color:#1FB5AB;
+                text-decoration: underline;
+            }
+        }
+    }
+}

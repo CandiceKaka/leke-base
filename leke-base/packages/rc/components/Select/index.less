@@ -1,0 +1,332 @@
+@import "../../less/theme.less";
+@import "../Popover/index.less";
+
+@small-height: 22px;
+@middle-height: 30px;
+@large-height: 38px;
+
+@small-fontsize: 12px;
+@middle-fontsize: 14px;
+@large-fontsize: 16px;
+
+@keyframes rotating {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0);
+  }
+}
+
+.leke-select {
+  display: inline-block;
+  box-sizing: border-box;
+  // width: 114px;
+  outline: none;
+  border-radius: @radius;
+  border: 1px solid @border-color;
+  cursor: pointer;
+  transition: all 0.3s;
+  vertical-align: middle;
+  padding-right: 10px;
+
+  .leke-icon{
+    line-height: 0;
+    display: inline-block;
+    vertical-align: -0.125em;
+  }
+
+  &:hover .leke-select-flex .leke-icon-clear {
+    opacity: 1;
+    pointer-events: initial;
+  }
+
+  &.leke-select-open,
+  &:hover {
+    border-color: @base-color;
+  }
+  &.leke-select-open,
+  &:focus {
+    outline: 0;
+    box-shadow: 0px 0px 0px 2px rgba(17, 143, 139, 0.2);
+
+    .leke-icon-down {
+      transform: rotate(180deg);
+    }
+  }
+  &.leke-select-show-search {
+    cursor: text;
+  }
+  &.leke-select-disabled {
+    color: @disable-color;
+    background-color: @hover-background-color;
+    cursor: not-allowed;
+    border-color: @disable-color;
+
+    .leke-select-flex .leke-icon-down {
+      color: #d8d8d8;
+    }
+  }
+  &.leke-select-open {
+    .leke-select-text {
+      color: @border-color;
+    }
+  }
+  .leke-select-text {
+    transition: all 0.3s;
+    white-space: nowrap;
+    padding-right: 18px;
+  }
+  .leke-select-flex {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+
+    .leke-icon-search {
+      color: #979797;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      margin-top: -6px;
+      font-size: 12px;
+    }
+
+    .leke-icon-down {
+      transition: 0.2s;
+      color: #8c8c8c;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      margin-top: -6px;
+      font-size: 12px;
+    }
+
+    .leke-icon-clear {
+      transition: 0.2s;
+      color: #bfbfbf;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      margin-top: -7px;
+      font-size: 14px;
+      pointer-events: none;
+      opacity: 0;
+      z-index: 1;
+      cursor: pointer;
+
+      &::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        background-color: #fff;
+        width: 14px;
+        height: 14px;
+      }
+
+      &:hover {
+        color: #8c8c8c;
+      }
+    }
+
+    .leke-icon-loading {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      margin-top: -6px;
+      font-size: 12px;
+      color: @border-color;
+      animation: rotating 1s linear infinite;
+    }
+  }
+  .leke-select-selector {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex: 1;
+    margin-left: 12px;
+    box-sizing: border-box;
+    position: relative;
+    max-width: 100%;
+  }
+
+  .leke-select-placeholder {
+    color: @border-color;
+    // position: absolute;
+    white-space: nowrap;
+    padding-right: 18px;
+    flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    pointer-events: none;
+  }
+  .leke-select-tag {
+    box-sizing: border-box;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    background-color: #f5f5f5;
+    border-radius: 2px;
+    border: 1px solid #f0f0f0;
+    font-size: 12px;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin: 2px 4px 2px 0;
+    cursor: default;
+    .leke-select-tag-text {
+      color: #262626;
+    }
+    .leke-icon-close {
+      color: #9a9a9a;
+      margin-left: 4px;
+      cursor: pointer;
+    }
+  }
+  .leke-select-search {
+    position: absolute;
+    left: 0;
+    height: 1.5em;
+    > input {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 10;
+      outline: none;
+      background-color: transparent;
+      border: 0;
+      padding: 0;
+      color: inherit;
+      // font-size: inherit;
+      font-family: inherit;
+    }
+    .leke-select-search-content {
+      visibility: hidden;
+      overflow: hidden;
+      white-space: nowrap;
+      min-width: 4px;
+    }
+  }
+}
+
+.leke-select-multiple {
+  .leke-select-search {
+    position: relative;
+  }
+
+  .leke-select-placeholder {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+    transform: translateY(-50%);
+    padding: 0;
+  }
+}
+
+.leke-option-container {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  display: flex;
+  overflow: hidden;
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 1px;
+  }
+  ::-webkit-scrollbar-thumb {
+    box-shadow: none;
+    border-radius: none;
+    background: #bfbfbf;
+  }
+  ::-webkit-scrollbar-track {
+    box-shadow: none;
+    border-radius: none;
+    background: transparent;
+  }
+
+  .leke-option-list {
+    flex: 1;
+  }
+  .leke-option-scrollBar {
+    width: 8px;
+    box-sizing: border-box;
+    > div {
+      width: 1px;
+    }
+  }
+  .leke-option-group {
+    box-sizing: border-box;
+    min-height: 32px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    font-size: 12px;
+    color: #8c8c8c;
+  }
+  .leke-option {
+    box-sizing: border-box;
+    cursor: pointer;
+    min-height: 32px;
+    display: flex;
+    align-items: center;
+    padding-left: 12px;
+    padding-right: 12px;
+    transition: all 0.3s;
+    color: @text-color;
+    &.leke-option-active {
+      background-color: @hover-background-color;
+    }
+    &.leke-option-selected {
+      background-color: @click-background-color;
+    }
+    &.leke-option-disabled {
+      color: @disable-color;
+      cursor: default;
+    }
+  }
+  .leke-option-group-item {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+.leke-select-empty {
+  text-align: center;
+  color: #8c8c8c;
+  padding: 15px 0;
+}
+
+.leke-select-borderless {
+  border: none;
+
+  &.leke-select-open,
+  &:focus {
+    box-shadow: none !important;
+  }
+
+  &.leke-select-disabled {
+    color: @border-color;
+    background-color: transparent;
+    cursor: not-allowed;
+  }
+}
+
+.leke-select-popup-null {
+  box-shadow: none;
+}
+
+// size配置
+@select-sizes: small, middle, large;
+
+each(@select-sizes, {
+  .leke-select-@{value} {
+    font-size:  ~"@{@{value}-fontsize}";
+
+    .leke-select-flex {
+      min-height: ~"@{@{value}-height}"
+    }
+  };
+});
